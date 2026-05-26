@@ -38,7 +38,7 @@
         }
         th, td {
             border: 1px solid #bdc3c7;
-            padding: 10px;
+            padding: 12px 10px;
             text-align: left;
         }
         th {
@@ -50,7 +50,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: color 0.2s, background-color 0.2s;
-            padding: 0 2px;
+            padding: 0 4px;
             border-radius: 3px;
         }
         .word:hover {
@@ -60,6 +60,10 @@
         .text-content {
             font-size: 1.1em;
             line-height: 1.8;
+        }
+        /* C部分段落間隔設定 */
+        .text-content p {
+            margin-bottom: 25px; /* 段落之間隔行 */
         }
     </style>
 </head>
@@ -123,29 +127,29 @@
     <h2>B部分：詞語 (滿分30分，每個詞語得3分)</h2>
     <table>
         <tr>
-            <td><span class="word" data-word="red_paper">red paper</span></td>
-            <td><span class="word" data-word="lantern">lantern</span></td>
-            <td><span class="word" data-word="flower_market">flower market</span></td>
+            <td>1. <span class="word" data-word="red_paper">red paper</span></td>
+            <td>2. <span class="word" data-word="lantern">lantern</span></td>
+            <td>3. <span class="word" data-word="flower_market">flower market</span></td>
         </tr>
         <tr>
-            <td><span class="word" data-word="gold">gold</span></td>
-            <td><span class="word" data-word="striped">striped</span></td>
-            <td><span class="word" data-word="curly">curly</span></td>
+            <td>4. <span class="word" data-word="gold">gold</span></td>
+            <td>5. <span class="word" data-word="striped">striped</span></td>
+            <td>6. <span class="word" data-word="curly">curly</span></td>
         </tr>
         <tr>
-            <td><span class="word" data-word="diamond">diamond</span></td>
-            <td><span class="word" data-word="lawyer">lawyer</span></td>
-            <td><span class="word" data-word="lifeguard">lifeguard</span></td>
+            <td>7. <span class="word" data-word="diamond">diamond</span></td>
+            <td>8. <span class="word" data-word="lawyer">lawyer</span></td>
+            <td>9. <span class="word" data-word="lifeguard">lifeguard</span></td>
         </tr>
         <tr>
-            <td><span class="word" data-word="caring">caring</span></td>
-            <td><span class="word" data-word="pilot">pilot</span></td>
-            <td><span class="word" data-word="responsible">responsible</span></td>
+            <td>10. <span class="word" data-word="caring">caring</span></td>
+            <td>11. <span class="word" data-word="pilot">pilot</span></td>
+            <td>12. <span class="word" data-word="responsible">responsible</span></td>
         </tr>
         <tr>
-            <td><span class="word" data-word="creative">creative</span></td>
-            <td><span class="word" data-word="humble">humble</span></td>
-            <td><span class="word" data-word="generous">generous</span></td>
+            <td>13. <span class="word" data-word="creative">creative</span></td>
+            <td>14. <span class="word" data-word="humble">humble</span></td>
+            <td>15. <span class="word" data-word="generous">generous</span></td>
         </tr>
     </table>
 
@@ -160,14 +164,31 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 自動將 C 部分的課文單字包裝成可點擊的 span
+        
+        // 針對 C 部分的課文進行純文字處理，避開 HTML 標籤
         const partC = document.getElementById("part-c-text");
         
-        // 使用正規表達式找出英文單字 (包含連字號)，並包裝在 span 內
-        partC.innerHTML = partC.innerHTML.replace(/\b([a-zA-Z]+(?:[-'][a-zA-Z]+)*)\b/g, function(match) {
-            // 將單字轉小寫，並把連字號替換為底線以符合檔名 (例如 role-play -> role_play)
-            let dataWord = match.toLowerCase().replace(/-/g, '_');
-            return `<span class="word" data-word="${dataWord}">${match}</span>`;
+        // 建立一個 TreeWalker 來只尋找「文字節點」
+        const walker = document.createTreeWalker(partC, NodeFilter.SHOW_TEXT, null, false);
+        const nodesToReplace = [];
+        let node;
+        
+        // 收集所有需要處理的文字節點
+        while (node = walker.nextNode()) {
+            if (node.nodeValue.trim() !== '') {
+                nodesToReplace.push(node);
+            }
+        }
+        
+        // 對每一個文字節點進行替換
+        nodesToReplace.forEach(textNode => {
+            const span = document.createElement('span');
+            // 將單字包裝起來
+            span.innerHTML = textNode.nodeValue.replace(/\b([a-zA-Z]+(?:[-'][a-zA-Z]+)*)\b/g, function(match) {
+                let dataWord = match.toLowerCase().replace(/-/g, '_');
+                return `<span class="word" data-word="${dataWord}">${match}</span>`;
+            });
+            textNode.parentNode.replaceChild(span, textNode);
         });
 
         // 為所有帶有 .word 類別的元素加上點擊發音功能
@@ -176,7 +197,7 @@
                 // 取得預設好的屬性值 (對應音檔名稱)
                 let word = this.getAttribute('data-word');
                 
-                // 設定音檔路徑 (假設 audio 資料夾與 index.html 放在同一層)
+                // 設定音檔路徑
                 let audioPath = `./audio/${word}.mp3`;
                 let audio = new Audio(audioPath);
                 
