@@ -3,162 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5下 英文 進評5 說話錄音</title>
+    <title>最後一次英文默書(考默)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        h1 { text-align: center; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #2980b9; margin-top: 30px; }
-        .word-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-        .btn-word { background-color: #fff; border: 2px solid #3498db; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn-word:hover { background-color: #3498db; color: #fff; transform: translateY(-2px); }
-        .passage-box { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .clickable-word { cursor: pointer; display: inline-block; padding: 2px 4px; margin: 2px; border-radius: 4px; transition: background-color 0.2s; }
-        .clickable-word:hover { background-color: #f1c40f; color: #000; font-weight: bold; }
-        .sentence-box { padding: 10px; margin-bottom: 10px; background-color: #e8f6f3; border-left: 5px solid #1abc9c; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; }
-        .sentence-box:hover { background-color: #d1f2eb; }
-        .instructions { font-size: 0.9em; color: #7f8c8d; margin-bottom: 15px; }
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ecf0f1;
+        }
+        /* 可點擊發音的單字樣式 */
+        .word {
+            color: #2980b9;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s, background-color 0.2s;
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+        .word:hover {
+            color: #fff;
+            background-color: #3498db;
+        }
+        .text-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        /* C部分段落間隔設定 */
+        .text-content p {
+            margin-bottom: 25px; /* 段落之間隔行 */
+        }
     </style>
 </head>
 <body>
 
-    <h1>5下 英文 進評5 說話錄音</h1>
+<div class="container">
+    <h1>最後一次英文默書(考默)</h1>
 
-    <h2>A部分：朗讀詞語 30% @2%</h2>
-    <p class="instructions">💡 點擊下方單字即可聆聽發音</p>
-    <div class="word-grid">
-        <div class="btn-word" onclick="playAudio('mandarin tree')">1. mandarin tree</div>
-        <div class="btn-word" onclick="playAudio('parade')">2. parade</div>
-        <div class="btn-word" onclick="playAudio('red paper')">3. red paper</div>
-        <div class="btn-word" onclick="playAudio('earrings')">4. earrings</div>
-        <div class="btn-word" onclick="playAudio('gold')">5. gold</div>
-        <div class="btn-word" onclick="playAudio('curly')">6. curly</div>
-        <div class="btn-word" onclick="playAudio('actor')">7. actor</div>
-        <div class="btn-word" onclick="playAudio('lawyer')">8. lawyer</div>
-        <div class="btn-word" onclick="playAudio('pilot')">9. pilot</div>
-        <div class="btn-word" onclick="playAudio('cheerful')">10. cheerful</div>
-        <div class="btn-word" onclick="playAudio('gentle')">11. gentle</div>
-        <div class="btn-word" onclick="playAudio('brave')">12. brave</div>
-        <div class="btn-word" onclick="playAudio('humble')">13. humble</div>
-        <div class="btn-word" onclick="playAudio('athlete')">14. athlete</div>
-        <div class="btn-word" onclick="playAudio('silver')">15. silver</div>
+    <h2>A部分：不規則動詞表 (滿分10分，每個分詞得1分)</h2>
+    <table>
+        <tr>
+            <th>動詞(無時態)</th>
+            <th>分詞(完成式)</th>
+            <th>動詞(無時態)</th>
+            <th>分詞(完成式)</th>
+        </tr>
+        <tr>
+            <td>1. <span class="word" data-word="ride">ride</span></td>
+            <td><span class="word" data-word="ridden">ridden</span></td>
+            <td>2. <span class="word" data-word="steal">steal</span></td>
+            <td><span class="word" data-word="stolen">stolen</span></td>
+        </tr>
+        <tr>
+            <td>3. <span class="word" data-word="know">know</span></td>
+            <td><span class="word" data-word="known">known</span></td>
+            <td>4. <span class="word" data-word="meet">meet</span></td>
+            <td><span class="word" data-word="met">met</span></td>
+        </tr>
+        <tr>
+            <td>5. <span class="word" data-word="lend">lend</span></td>
+            <td><span class="word" data-word="lent">lent</span></td>
+            <td>6. <span class="word" data-word="break">break</span></td>
+            <td><span class="word" data-word="broken">broken</span></td>
+        </tr>
+        <tr>
+            <td>7. <span class="word" data-word="forget">forget</span></td>
+            <td><span class="word" data-word="forgotten">forgotten</span></td>
+            <td>8. <span class="word" data-word="hold">hold</span></td>
+            <td><span class="word" data-word="held">held</span></td>
+        </tr>
+        <tr>
+            <td>9. <span class="word" data-word="lose">lose</span></td>
+            <td><span class="word" data-word="lost">lost</span></td>
+            <td>10. <span class="word" data-word="drink">drink</span></td>
+            <td><span class="word" data-word="drunk">drunk</span></td>
+        </tr>
+        <tr>
+            <td>11. <span class="word" data-word="become">become</span></td>
+            <td><span class="word" data-word="become">become</span></td>
+            <td>12. <span class="word" data-word="hear">hear</span></td>
+            <td><span class="word" data-word="heard">heard</span></td>
+        </tr>
+        <tr>
+            <td>13. <span class="word" data-word="take">take</span></td>
+            <td><span class="word" data-word="taken">taken</span></td>
+            <td>14. <span class="word" data-word="have">have</span></td>
+            <td><span class="word" data-word="had">had</span></td>
+        </tr>
+    </table>
+
+    <h2>B部分：詞語 (滿分30分，每個詞語得3分)</h2>
+    <table>
+        <tr>
+            <td>1. <span class="word" data-word="red_paper">red paper</span></td>
+            <td>2. <span class="word" data-word="lantern">lantern</span></td>
+            <td>3. <span class="word" data-word="flower_market">flower market</span></td>
+        </tr>
+        <tr>
+            <td>4. <span class="word" data-word="gold">gold</span></td>
+            <td>5. <span class="word" data-word="striped">striped</span></td>
+            <td>6. <span class="word" data-word="curly">curly</span></td>
+        </tr>
+        <tr>
+            <td>7. <span class="word" data-word="diamond">diamond</span></td>
+            <td>8. <span class="word" data-word="lawyer">lawyer</span></td>
+            <td>9. <span class="word" data-word="lifeguard">lifeguard</span></td>
+        </tr>
+        <tr>
+            <td>10. <span class="word" data-word="caring">caring</span></td>
+            <td>11. <span class="word" data-word="pilot">pilot</span></td>
+            <td>12. <span class="word" data-word="responsible">responsible</span></td>
+        </tr>
+        <tr>
+            <td>13. <span class="word" data-word="creative">creative</span></td>
+            <td>14. <span class="word" data-word="humble">humble</span></td>
+            <td>15. <span class="word" data-word="generous">generous</span></td>
+        </tr>
+    </table>
+
+    <h2>C部分：課文 (滿分60分，每個錯處扣3分，如果犯了20個錯處就扣光得0分)</h2>
+    <div class="text-content" id="part-c-text">
+        <p>Miss Lee told me that no one swept the floor on the first day of Chinese New Year in the past. People believed this would sweep away the good luck for the new year.</p>
+        <p>Dream City is an indoor theme park for kids. You can role-play different jobs and learn useful skills here.</p>
+        <p>He asked his brother Henry for the ring. Henry was the best man. He helped Eddy at the wedding.</p>
+        <p>Fung lost his left leg in a traffic accident, but he never gave up. He and his caring wife have been married for 30 years. He met her after the accident. She is a nurse. She took care of him in the hospital since then.</p>
     </div>
+</div>
 
-    <h2>B部分：朗讀短文 10% (逐字發音)</h2>
-    <p class="instructions">💡 將游標移至單字上點擊，即可聆聽單個字彙發音</p>
-    <div class="passage-box" id="word-by-word-passage">
-        <h3>
-            <span class="clickable-word" onclick="playAudio('My')">My</span> 
-            <span class="clickable-word" onclick="playAudio('favourite')">favourite</span> 
-            <span class="clickable-word" onclick="playAudio('sport')">sport</span>
-        </h3>
-        <p>
-            <span class="clickable-word" onclick="playAudio('My')">My</span> 
-            <span class="clickable-word" onclick="playAudio('favourite')">favourite</span> 
-            <span class="clickable-word" onclick="playAudio('sport')">sport</span> 
-            <span class="clickable-word" onclick="playAudio('is')">is</span> 
-            <span class="clickable-word" onclick="playAudio('basketball')">basketball.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('have')">have</span> 
-            <span class="clickable-word" onclick="playAudio('been')">been</span> 
-            <span class="clickable-word" onclick="playAudio('a')">a</span> 
-            <span class="clickable-word" onclick="playAudio('basketball')">basketball</span> 
-            <span class="clickable-word" onclick="playAudio('player')">player</span> 
-            <span class="clickable-word" onclick="playAudio('for')">for</span> 
-            <span class="clickable-word" onclick="playAudio('five')">five</span> 
-            <span class="clickable-word" onclick="playAudio('years')">years.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('When')">When</span> 
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('was')">was</span> 
-            <span class="clickable-word" onclick="playAudio('in')">in</span> 
-            <span class="clickable-word" onclick="playAudio('Primary')">Primary</span> 
-            <span class="clickable-word" onclick="playAudio('one')">one,</span> 
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('was')">was</span> 
-            <span class="clickable-word" onclick="playAudio('very')">very</span> 
-            <span class="clickable-word" onclick="playAudio('short')">short</span> 
-            <span class="clickable-word" onclick="playAudio('and')">and</span> 
-            <span class="clickable-word" onclick="playAudio('weak')">weak.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('wanted')">wanted</span> 
-            <span class="clickable-word" onclick="playAudio('to')">to</span> 
-            <span class="clickable-word" onclick="playAudio('become')">become</span> 
-            <span class="clickable-word" onclick="playAudio('healthier')">healthier,</span> 
-            <span class="clickable-word" onclick="playAudio('so')">so</span> 
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('joined')">joined</span> 
-            <span class="clickable-word" onclick="playAudio('the')">the</span> 
-            <span class="clickable-word" onclick="playAudio('school\'s')">school’s</span> 
-            <span class="clickable-word" onclick="playAudio('basketball')">basketball</span> 
-            <span class="clickable-word" onclick="playAudio('team')">team.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('have')">have</span> 
-            <span class="clickable-word" onclick="playAudio('become')">become</span> 
-            <span class="clickable-word" onclick="playAudio('stronger')">stronger</span> 
-            <span class="clickable-word" onclick="playAudio('since')">since</span> 
-            <span class="clickable-word" onclick="playAudio('then')">then.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('I')">I</span> 
-            <span class="clickable-word" onclick="playAudio('have')">have</span> 
-            <span class="clickable-word" onclick="playAudio('also')">also</span> 
-            <span class="clickable-word" onclick="playAudio('learnt')">learnt</span> 
-            <span class="clickable-word" onclick="playAudio('how')">how</span> 
-            <span class="clickable-word" onclick="playAudio('to')">to</span> 
-            <span class="clickable-word" onclick="playAudio('work')">work</span> 
-            <span class="clickable-word" onclick="playAudio('as')">as</span> 
-            <span class="clickable-word" onclick="playAudio('a')">a</span> 
-            <span class="clickable-word" onclick="playAudio('team')">team</span> 
-            <span class="clickable-word" onclick="playAudio('with')">with</span> 
-            <span class="clickable-word" onclick="playAudio('other')">other</span> 
-            <span class="clickable-word" onclick="playAudio('schoolmates')">schoolmates.</span>
-        </p>
-        <p>
-            <span class="clickable-word" onclick="playAudio('We')">We</span> 
-            <span class="clickable-word" onclick="playAudio('won')">won</span> 
-            <span class="clickable-word" onclick="playAudio('the')">the</span> 
-            <span class="clickable-word" onclick="playAudio('inter-school')">inter-school</span> 
-            <span class="clickable-word" onclick="playAudio('basketball')">basketball</span> 
-            <span class="clickable-word" onclick="playAudio('competition')">competition</span> 
-            <span class="clickable-word" onclick="playAudio('last')">last</span> 
-            <span class="clickable-word" onclick="playAudio('year')">year.</span>
-        </p>
-    </div>
-
-    <h2>B部分：朗讀短文 (逐句發音)</h2>
-    <p class="instructions">💡 點擊整行句子即可聆聽整句發音</p>
-    <div class="passage-box">
-        <div class="sentence-box" onclick="playAudio('s0')"><strong>My favourite sport</strong></div>
-        <div class="sentence-box" onclick="playAudio('s1')">My favourite sport is basketball.</div>
-        <div class="sentence-box" onclick="playAudio('s2')">I have been a basketball player for five years.</div>
-        <div class="sentence-box" onclick="playAudio('s3')">When I was in Primary one, I was very short and weak.</div>
-        <div class="sentence-box" onclick="playAudio('s4')">I wanted to become healthier, so I joined the school’s basketball team.</div>
-        <div class="sentence-box" onclick="playAudio('s5')">I have become stronger since then.</div>
-        <div class="sentence-box" onclick="playAudio('s6')">I have also learnt how to work as a team with other schoolmates.</div>
-        <div class="sentence-box" onclick="playAudio('s7')">We won the inter-school basketball competition last year.</div>
-    </div>
-
-    <h2>C部分：數字</h2>
-    <p class="instructions">💡 點擊下方數字即可聆聽發音</p>
-    <div class="word-grid">
-        <div class="btn-word" onclick="playAudio('30')">30</div>
-    </div>
-
-    <script>
-        function playAudio(filename) {
-            // 自動加上資料夾路徑與副檔名
-            let audio = new Audio('./audio/' + filename + '.mp3');
-            audio.play().catch(function(error) {
-                alert('找不到音檔: ' + filename + '.mp3\n請確認音檔是否已正確上傳至 audio 資料夾中。');
-            });
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // 針對 C 部分的課文進行純文字處理，避開 HTML 標籤
+        const partC = document.getElementById("part-c-text");
+        
+        // 建立一個 TreeWalker 來只尋找「文字節點」
+        const walker = document.createTreeWalker(partC, NodeFilter.SHOW_TEXT, null, false);
+        const nodesToReplace = [];
+        let node;
+        
+        // 收集所有需要處理的文字節點
+        while (node = walker.nextNode()) {
+            if (node.nodeValue.trim() !== '') {
+                nodesToReplace.push(node);
+            }
         }
-    </script>
+        
+        // 對每一個文字節點進行替換
+        nodesToReplace.forEach(textNode => {
+            const span = document.createElement('span');
+            // 將單字包裝起來
+            span.innerHTML = textNode.nodeValue.replace(/\b([a-zA-Z]+(?:[-'][a-zA-Z]+)*)\b/g, function(match) {
+                let dataWord = match.toLowerCase().replace(/-/g, '_');
+                return `<span class="word" data-word="${dataWord}">${match}</span>`;
+            });
+            textNode.parentNode.replaceChild(span, textNode);
+        });
+
+        // 為所有帶有 .word 類別的元素加上點擊發音功能
+        document.querySelectorAll('.word').forEach(span => {
+            span.addEventListener('click', function() {
+                // 取得預設好的屬性值 (對應音檔名稱)
+                let word = this.getAttribute('data-word');
+                
+                // 設定音檔路徑
+                let audioPath = `./audio/${word}.mp3`;
+                let audio = new Audio(audioPath);
+                
+                audio.play().catch(e => {
+                    console.error("找不到發音檔或播放失敗:", audioPath);
+                    alert("找不到發音檔: " + word + ".mp3");
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
