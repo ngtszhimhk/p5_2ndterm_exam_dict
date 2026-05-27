@@ -183,8 +183,8 @@
         // 對每一個文字節點進行替換
         nodesToReplace.forEach(textNode => {
             const span = document.createElement('span');
-            // 將單字包裝起來
-            span.innerHTML = textNode.nodeValue.replace(/\b([a-zA-Z]+(?:[-'][a-zA-Z]+)*)\b/g, function(match) {
+            // 【修改重點】在正規表達式中加入了 0-9，讓數字也能被抓取並包裝
+            span.innerHTML = textNode.nodeValue.replace(/\b([a-zA-Z0-9]+(?:[-'][a-zA-Z0-9]+)*)\b/g, function(match) {
                 let dataWord = match.toLowerCase().replace(/-/g, '_');
                 return `<span class="word" data-word="${dataWord}">${match}</span>`;
             });
